@@ -1,0 +1,52 @@
+<title>CFAN6 C1 :: 1</title>
+<link rel="stylesheet" href="/assets/lib/style/main.css" type="text/css">
+<script src="/assets/lib/jquery-3.5.1.js"></script>
+<script>
+    $(function(){
+        $("#header").load("/header.html");
+        $("#footer").load("/footer.html");
+    });
+    
+    var title = "CFAN6 C1 :: "
+    var page = 1
+    // var pad = "0000"
+    // var filename = pad.substring(0, pad.length - page.toString().length) + page.toString()
+
+    function updateImg(){
+        // $("#comic").attr("src", "https://raw.githubusercontent.com/rustMotherboard/cfan6-img/master/1/cfan6-1" + filename + ".png");
+        $("#comic").attr("src", "https://raw.githubusercontent.com/rustMotherboard/cfan6-img/master/1/" + page + ".png")
+    };
+    function updateTitle(){
+        document.title = title + page;
+    }
+
+    function imgPos(){
+        page++;
+        updateImg();
+        updateTitle();
+    };
+
+    function imgNeg(){
+        page--;
+        updateImg();
+        updateTitle();
+    };
+
+    $(document).ready(function() {
+        $('#forward').click(imgPos);
+        $('#back').click(imgNeg);
+        updateImg();
+    });
+</script>
+<div id="header"></div>
+<div class="main">
+
+    <center>
+        <img id="comic" class="figure" style="vertical-align:top;" src="">
+        <button id="back">back</button>
+        <button id="forward">forward</button>
+    </center>
+
+<p><a href="/projects/cfan6/cfan6-index.html"><img src="/assets/img/backimg.svg"></a></p>
+</div>
+<div id="footer"></div>
